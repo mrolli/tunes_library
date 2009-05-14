@@ -1,0 +1,16 @@
+<h2>Album Types</h2>
+
+<table>
+<?
+foreach ($this->albumTypes as $albumType) : 
+
+$edit_link   = $this->url(array('id' => $albumType->id, 'action' => 'edit'));
+$delete_link = $this->url(array('id' => $albumType->id, 'action' => 'delete'));
+?>
+    <tr>
+        <td><?= $albumType->label ?></td>
+        <td><button onclick="location.href='<?= $edit_link ?>'">Edit</button>
+        <td><button onclick="location.href='<?= $delete_link ?>'">Delete</button>
+    </tr>
+<? endforeach; ?>
+</table>

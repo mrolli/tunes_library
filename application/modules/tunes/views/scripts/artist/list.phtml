@@ -1,0 +1,15 @@
+<h2>Artists</h2>
+
+<table>
+<?
+foreach ($this->artists as $artist) : 
+
+$show_link = $this->url(array('id' => $artist->id, 'controller' => 'artist', 'action' => 'show'));
+$edit_link = $this->url(array('id' => $artist->id, 'controller' => 'artist', 'action' => 'edit'));
+?>
+    <tr>
+        <td><a href="<?= $show_link ?>"><?= $artist->name ?></a></td>
+        <td><button onclick="location.href='<?= $edit_link ?>'">Edit</button>
+    </tr>
+<? endforeach; ?>
+</table>

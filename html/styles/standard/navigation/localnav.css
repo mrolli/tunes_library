@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+#col3_content ul { list-style-type: none; margin: 0; padding: 0; border-top: 0.1em #dddddd solid; }
+
+#col3_content li { margin:0; padding: 0; border-bottom: 0.1em #dddddd solid; padding: 0.3em 1em; }
+#col3_content li:hover { background: #f9f9f9; cursor: pointer; }
+#col3_content li.active { background: #f1f9ff; }

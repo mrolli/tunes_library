@@ -1,0 +1,78 @@
+<?= $this->doctype(); ?>
+<html lang="en">
+<head>
+    <!-- page title -->
+<?= $this->headTitle($this->escape($this->pageTitle)) ?>
+
+    <!-- meta data -->
+<?= $this->headMeta() ?>
+
+    <!-- links -->
+<?= $this->headLink()->prependStylesheet($this->baseUrl() . '/styles/standard/core.css', 'all')
+                     ->appendStylesheet($this->baseUrl() . '/styles/standard/patches/patch.css', 'all', 'lte IE 7')
+                     ->setIndent(4);
+?>
+
+    <!-- scripts -->
+<?= $this->headScript()->setIndent(2) ?>
+
+</head>
+<body>
+<div id="page_margins">
+	<div id="page">
+		<div id="header">
+			<div id="topnav">
+				<!-- start: skip link navigation -->
+				<a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
+				<a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
+				<!-- end: skip link navigation -->
+				<span><a href="#">Login</a> | <a href="#">Contact</a> | <a href="#">Imprint</a></span> </div>
+			<h1>Tunes » <em><?= $this->escape($this->pageTitle) ?></em></h1>
+			<span><?= $this->breadcrumb() ?></span></div>
+		<!-- begin: main navigation #nav -->
+		<div id="nav"> <a id="navigation" name="navigation"></a>
+			<!-- skiplink anchor: navigation -->
+			<div id="nav_main">
+				<ul>
+					<li id="current"><a href="<?= $this->url(array('controller' => 'artist', 'action' => 'index')) ?>">Artists</a></li>
+					<li><a href="<?= $this->url(array('controller' => 'album', 'action' => 'index')) ?>">Albums</a></li>
+					<li><a href="<?= $this->url(array('controller' => 'albumtype', 'action' => 'index')) ?>">Album Types</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- end: main navigation -->
+		<!-- begin: main content area #main -->
+		<div id="main">
+			<!-- begin: #col1 - first float column -->
+			<div id="col1">
+				<div id="col1_content" class="clearfix"> <a id="content" name="content"></a>
+                <?= $this->layout()->content ?>
+				</div>
+			</div>
+			<!-- end: #col1 -->
+			<!-- begin: #col2 second float column -->
+			<div id="col2">
+				<div id="col2_content" class="clearfix">
+                <!-- empty column -->
+				</div>
+			</div>
+			<!-- end: #col2 -->
+			<!-- begin: #col3 static column -->
+			<div id="col3">
+				<div id="col3_content" class="clearfix"> <a id="navigation" name="content"></a>
+                <?= $this->layout()->localnav ?>
+				</div>
+				<div id="ie_clearing">&nbsp;</div>
+				<!-- End: IE Column Clearing -->
+			</div>
+			<!-- end: #col3 -->
+		</div>
+		<!-- end: #main -->
+		<!-- begin: #footer -->
+		<div id="footer">Footer with copyright notice and status information<br />
+Layout based on <a href="http://www.yaml.de/">YAML</a></div>
+		<!-- end: #footer -->
+	</div>
+</div>
+</body>
+</html>

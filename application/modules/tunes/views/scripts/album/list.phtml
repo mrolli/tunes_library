@@ -1,0 +1,37 @@
+<h2>Album list</h2>
+
+<? if (count($this->albums) > 10) : ?>
+<div class="important"><?= $this->colorizeAlbum()->getColorLegend(); ?></div>
+<? endif; ?>
+
+<table class="full">
+    <tr>
+        <th>Album Name</th>
+        <th>Year</th>
+        <th>Actions</th>
+    </tr>
+<? foreach ($this->albums as $album) : ?>
+<? 
+$edit_link = $this->url(array('id' => $album->id, 'controller' => 'album', 'action' => 'edit'));
+?>
+    <tr>
+        <td>
+            <a href="<?= $this->url(array('action' => 'show', 'controller' => 'album', 'id' => $album->id)) ?>">
+                <?= $this->colorizeAlbum($album) ?>
+            </a>
+        </td>
+        <td><?= $album->year ?></td>
+        <td><button onclick="location.href='<?= $edit_link ?>'">Edit</button>
+    </tr>
+<? endforeach; ?>
+
+<? if (count($this->albums) > 10) : ?>
+    <tr>
+        <th>Album Name</th>
+        <th>Year</th>
+        <th>Actions</th>
+    </tr>
+<? endif; ?>
+</table>
+
+<div class="important"><?= $this->colorizeAlbum()->getColorLegend(); ?></div>

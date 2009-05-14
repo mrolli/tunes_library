@@ -1,0 +1,11 @@
+<ul>
+<? foreach ($this->localnav as $navpoint) : ?>
+<? if ($this->action == strtolower($navpoint)) : ?>
+<li class="active"><?= $navpoint ?></li>
+<? else : ?>
+<li onclick="location.href='<?= $this->url(array('action' => strtolower($navpoint)), null) ?>'">
+    <a href="<?= $this->url(array('action' => strtolower($navpoint)), null) ?>"><?= $navpoint ?></a>
+</li>
+<? endif; ?>
+<? endforeach; ?>
+</ul>
